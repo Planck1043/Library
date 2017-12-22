@@ -1,0 +1,16 @@
+<h1>新书上架</h1>
+<%= form_for @book do |f| %>
+  <p>
+    <%= f.label "书名" %> </br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label "简介" %> </br>
+    <%= f.text_area :text %>
+  </p>
+
+  <p>
+    <%= f.submit '提交'%>
+  </p>
+<% end %>

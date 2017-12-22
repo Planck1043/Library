@@ -1,0 +1,22 @@
+<h1>图书首页</h1>
+</p>
+<%= link_to 'New', new_book_path %>
+</p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.text %></td>
+      <td><%= link_to 'Show', book_path(book) %></td>
+      <td><%= link_to 'Edit', edit_book_path(book) %></td>
+      <td><%= link_to 'Delete', book_path(book),
+              method: :delete, data: { confirm: 'Are you sure' }%></td>
+    </tr>
+  <% end %>
+</table>
