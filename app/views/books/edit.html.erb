@@ -1,4 +1,4 @@
-<h1>新书上架</h1>
+<h1>图书修改</h1>
 <%= form_for @book do |f| %>
   <p>
     <%= f.label "书名" %> </br>
@@ -11,6 +11,18 @@
   </p>
 
   <p>
+    <%= f.label "状态" %> </br>
+    <%= f.select 'state', options_for_select(['上架', '下架']) %>
+  </p>
+
+  <p>
+    <%= f.label "库存" %> </br>
+    <%= f.number_field :stock %>
+  </p>
+
+  <p>
     <%= f.submit '提交'%>
   </p>
 <% end %>
+
+<%= link_to '返回', books_path %>

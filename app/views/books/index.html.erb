@@ -1,21 +1,26 @@
 <h1>图书首页</h1>
 </p>
-<%= link_to 'New', new_book_path %>
+<%= link_to '新书上架', new_book_path %>
 </p>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
+<table class="table table-bordered table-hover">
+  <tr class="text-info">
+    <th>书名</th>
+    <th>简介</th>
+    <th>状态</th>
+    <th>库存</th>
+    <th>操作</th>
   </tr>
 
   <% @books.each do |book| %>
-    <tr>
+    <tr class="text-info">
       <td><%= book.title %></td>
       <td><%= book.text %></td>
-      <td><%= link_to 'Show', book_path(book) %></td>
-      <td><%= link_to 'Edit', edit_book_path(book) %></td>
-      <td><%= link_to 'Delete', book_path(book),
+      <td><%= book.state %></td>
+      <td><%= book.stock %></td>
+      <td><%= link_to '显示', book_path(book) %><span style="margin-left: 5px;">|</span>
+      <%= link_to '修改', edit_book_path(book) %><span style="margin-left: 5px;">|</span>
+      <%= link_to '删除', book_path(book),
               method: :delete, data: { confirm: 'Are you sure' }%></td>
     </tr>
   <% end %>
