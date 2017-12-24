@@ -7,4 +7,12 @@
   <strong>简介:</strong>
   <%= @book.text %>
 </p>
+<p>
+  <strong>状态:</strong>
+  <%= @book.book_state %>
+</p>
+<p>
+  <strong>库存:</strong>
+  <%= @book.book_stock %>
+</p>
 <%= link_to '返回', books_path %>

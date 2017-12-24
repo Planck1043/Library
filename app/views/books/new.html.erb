@@ -30,12 +30,12 @@
 
   <p>
     <%= f.label "状态" %> </br>
-    <%= f.select 'state', options_for_select(['上架', '下架']) %>
+    <%= f.select 'book_state', options_for_select(['上架', '下架']) %>
   </p>
 
   <p>
     <%= f.label "库存" %> </br>
-    <%= f.number_field :stock %>
+    <%= f.number_field :book_stock %>
   </p>
 
   <p>

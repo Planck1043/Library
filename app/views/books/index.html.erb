@@ -16,8 +16,8 @@
     <tr class="text-info">
       <td><%= book.title %></td>
       <td><%= book.text %></td>
-      <td><%= book.state %></td>
-      <td><%= book.stock %></td>
+      <td><%= book.book_state %></td>
+      <td><%= book.book_stock %></td>
       <td><%= link_to '显示', book_path(book) %><span style="margin-left: 5px;">|</span>
       <%= link_to '修改', edit_book_path(book) %><span style="margin-left: 5px;">|</span>
       <%= link_to '删除', book_path(book),
