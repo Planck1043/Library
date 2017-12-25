@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :admin_required, only: [:index, :new, :create, :update, :edit, :destroy]
 
   def index
     @books = Book.all
@@ -27,7 +28,6 @@ class BooksController < ApplicationController
   # end
 
   def create
-    binding.pry
     @book = Book.new(book_params)
 
     if @book.save
@@ -39,6 +39,10 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+  end
+
+  def showa
+    @book = Book.find(params[:format])
   end
 
   def edit
@@ -60,6 +64,22 @@ class BooksController < ApplicationController
     @book.destroy
 
     redirect_to books_path
+  end
+
+  def book_up
+    @book = Book.find(params[:id])
+    @book.book_state = "上架"
+    @book.save
+
+    redirect_to :back
+  end
+
+  def book_down
+
+    @book = Book.find(params[:id])
+    @book.update(book_state: "下架")
+
+    redirect_to :back
   end
 
   private

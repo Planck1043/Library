@@ -1,0 +1,18 @@
+<h1>图书</h1>
+<p>
+  <strong>书名:</strong>
+  <%= @book.title %>
+</p>
+<p>
+  <strong>简介:</strong>
+  <%= @book.text %>
+</p>
+<p>
+  <strong>库存:</strong>
+  <%= @book.book_stock %>
+</p>
+<p>
+  <strong>借阅:</strong>
+  <%= link_to '借书' %>
+</p>
+<%= link_to '返回', root_path %>

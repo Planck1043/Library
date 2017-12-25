@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   end
 
   private
-  
+
   def auth_user
     #logged_in?是sorcery的判断登录方法
     if logged_in?

@@ -16,7 +16,16 @@
     <tr class="text-info">
       <td><%= book.title %></td>
       <td><%= book.text %></td>
-      <td><%= book.book_state %></td>
+      <td><%= book.book_state %></td> 
+      <td>
+        <% if book.book_state %>
+          <%= link_to("上架", book_down_books_path(:id=> book.id), method: :post , :class => "btn btn-xs btn-default") %>
+        <% else %>
+          <%= link_to("下架", book_up_books_path(:id=>book.id), method: :post , :class => "btn btn-xs btn-default") %>
+        <% end %>
+      </td>
+
+
       <td><%= book.book_stock %></td>
       <td><%= link_to '显示', book_path(book) %><span style="margin-left: 5px;">|</span>
       <%= link_to '修改', edit_book_path(book) %><span style="margin-left: 5px;">|</span>
