@@ -5,6 +5,10 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def indexa
+    @books = Book.where(:book_state => '上架')
+  end
+
   def new
     @book = Book.new
   end
@@ -23,6 +27,7 @@ class BooksController < ApplicationController
   # end
 
   def create
+    binding.pry
     @book = Book.new(book_params)
 
     if @book.save

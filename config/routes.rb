@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  root 'books#index'
-  resources :books
+  root 'books#indexa'
 
+  resources :users
+  resources :sessions
+
+  resources :books do
+    collection do
+      get 'indexa'
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

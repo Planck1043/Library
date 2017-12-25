@@ -1,0 +1,19 @@
+<h1>图书首页</h1>
+
+<table class="table table-bordered table-hover">
+  <tr class="text-info">
+    <th>书名</th>
+    <th>简介</th>
+    <th>库存</th>
+    <th>操作</th>
+  </tr>
+
+  <% @books.each do |book| %>
+    <tr class="text-info">
+      <td><%= book.title %></td>
+      <td><%= book.text %></td>
+      <td><%= book.book_stock %></td>
+      <td><%= link_to '显示', book_path(book) %>
+    </tr>
+  <% end %>
+</table>
