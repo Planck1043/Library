@@ -15,13 +15,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  helper_method :current_borrow
 
-  # protected
-  #
-  # def auth_user
-  #   unless logged_in?
-  #     flash[:notice] = "请登录"
-  #     redirect_to login_url
-  #   end
-  # end
+  def current_borrow
+    @current_borrow ||= find_borrow
+  end
+
+  private
+
+  def find_borrow
+    borrow = Borrow.find_by(id: session[:borrow_id])
+
+    if borrow.blank?
+      borrow = Borrow.create
+    end
+
+    session[:borrow_id] = borrow.id
+    return borrow
+  end
 end

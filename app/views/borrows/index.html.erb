@@ -1,0 +1,14 @@
+<h1>借书单</h1>
+<table>
+  <tr>
+    <th>书名</th>
+    <th>简介</th>
+    <th>操作</th>
+  </tr>
+  <% current_borrow.borrow_items each do |borrow_item| %>
+  <tr>
+    <th>borrow_item.book.title</th>
+    <th></th>
+  </tr>
+  <% end %>
+</table>

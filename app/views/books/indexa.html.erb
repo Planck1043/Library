@@ -13,7 +13,10 @@
       <td><%= book.title %></td>
       <td><%= book.text %></td>
       <td><%= book.book_stock %></td>
-      <td><%= link_to '显示', showa_books_path(book) %>
+      <td>
+          <%= link_to '显示', showa_books_path(book) %><span style="margin-left: 5px;">|</span>
+          <%= link_to '借阅', add_to_borrow_book_path(:id => book.id), :method => :post, :class => "btn btn-primary btn-lg btn-danger" %>
+      </td>
     </tr>
   <% end %>
 </table>

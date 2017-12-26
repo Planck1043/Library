@@ -78,6 +78,13 @@ class BooksController < ApplicationController
     redirect_to :back
   end
 
+  def add_to_borrow
+    @book = Book.find(params[:id])
+    current_borrow.add_book_to_borrow(@book)
+    flash[:notice] = "成功加入借书单"
+    redirect_to :back
+  end
+
   def borrow
     @book = Book.find(params[:id])
     @book.book_stock = @book.book_stock - 1
