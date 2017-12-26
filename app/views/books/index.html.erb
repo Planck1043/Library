@@ -2,6 +2,10 @@
 </p>
 <%= link_to '新书上架', new_book_path %>
 </p>
+<p>
+
+  <%=flash[:error]%>
+</p>
 
 <table class="table table-bordered table-hover">
   <tr class="text-info">
@@ -16,15 +20,9 @@
     <tr class="text-info">
       <td><%= book.title %></td>
       <td><%= book.text %></td>
-      <td><%= book.book_state %></td> 
       <td>
-        <% if book.book_state %>
-          <%= link_to("上架", book_down_books_path(:id=> book.id), method: :post , :class => "btn btn-xs btn-default") %>
-        <% else %>
-          <%= link_to("下架", book_up_books_path(:id=>book.id), method: :post , :class => "btn btn-xs btn-default") %>
-        <% end %>
+          <%= link_to("#{book.book_state}", book_update_books_path(:id => book.id), method: :post , :class => "btn btn-xs btn-default") %>
       </td>
-
 
       <td><%= book.book_stock %></td>
       <td><%= link_to '显示', book_path(book) %><span style="margin-left: 5px;">|</span>

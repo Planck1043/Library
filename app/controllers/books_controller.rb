@@ -66,21 +66,40 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def book_up
+  def book_update
     @book = Book.find(params[:id])
-    @book.book_state = "上架"
-    @book.save
-
+    if @book.book_state == "上架"
+      @book.update(book_state: "下架")
+      flash[:error] = "下架成功"
+    else
+      @book.update(book_state: "上架")
+      flash[:error] = "上架成功"
+    end
     redirect_to :back
   end
 
-  def book_down
-
+  def borrow
     @book = Book.find(params[:id])
-    @book.update(book_state: "下架")
-
-    redirect_to :back
+    @book.book_stock = @book.book_stock - 1
+    if @book.save
+      redirect_to :back
+      flash[:error] = "借阅成功"
+    else
+      flash[:error] = "借阅失败"
+    end
   end
+
+  def return_book
+    @book = Book.find(params[:id])
+    @book.book_stock = @book.book_stock + 1
+    if @book.save
+      redirect_to :back
+      flash[:error] = "还书成功"
+    else
+      flash[:error] = "还书失败"
+    end
+  end
+
 
   private
 
