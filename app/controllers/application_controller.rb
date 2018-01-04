@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
   # end
 
   def admin_required
-    if !current_user.admin?
-      redirect_to '/', alert: "你不是管理员"
+    if !current_user.present?
+      flash[:notice] = "你不是管理员"
+      redirect_to '/'
     end
   end
 
