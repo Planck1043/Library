@@ -2,7 +2,7 @@
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">图书</a>
-      <!-- href="#"是点击按钮跳转路径，将符号"#"更好为相对网址路径，例如"/"表示首页路径 -->
+      <!-- href="#"是点击按钮跳转路径，将符号"#"替换为相对网址路径，例如"/"表示首页路径 -->
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -14,6 +14,7 @@
           </li>
           <% if !current_user %>
             <li><%= link_to("注册", new_user_path) %> </li>
+            <!-- 在 rails 中 "link_to" 是 "<a>" 的封装 -->
             <li><%= link_to("登入", new_session_path) %></li>
           <% else %>
             <li class="dropdown">
