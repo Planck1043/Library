@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :admin_required, only: [:index, :new, :create, :update, :edit, :destroy]
+  before_action :admin_required
 
   def index
     @books = Book.all
@@ -94,7 +94,6 @@ class BooksController < ApplicationController
   end
 
   def return_book
-
     @borrow_item = BorrowItem.find(params[:id])
     if @borrow_item.destroy
       @borrow_item.book.book_stock = @borrow_item.book.book_stock + 1
