@@ -1,8 +1,8 @@
 ---
-  chdir: '/Users/MacZY/rails04'
+  chdir: '/home/apps/Library'
   environment: development
   address: 0.0.0.0
-  port: 5535
+  port: 3000
   timeout: 30
   log: log/thin.log
   pid: tmp/pids/thin.pid
@@ -10,6 +10,6 @@
   max_persistent_conns: 512
   require: []
   wait: 30
-  servers: 4
+  servers: 1
   daemonize: true
   #bundle exec thin start -C config/thin.yml
